@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Rhian Ashley De Leon Garcia, a BS Information Technology student.">
+  <title>Rhian Ashley | Personal Portfolio</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  --ink: #20243a;
+  --muted: #687087;
+  --accent: #7657c8;
+  --accent-dark: #5d42a8;
+  --pale: #f3effc;
+  --line: #e7e2f1;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--white);
+  font-family: 'DM Sans', Arial, sans-serif;
+  line-height: 1.7;
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+.navbar {
+  max-width: 1120px;
+  min-height: 72px;
+  margin: auto;
+  padding: 12px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.brand {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.brand span { color: var(--accent); }
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .88rem;
+  font-weight: 600;
+}
+.nav-links a:hover { color: var(--accent); }
+.hero {
+  max-width: 1120px;
+  min-height: 510px;
+  margin: auto;
+  padding: 90px 28px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+h1, h2, h3, p { margin-top: 0; }
+h1 {
+  max-width: 680px;
+  margin-bottom: 18px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.7rem, 6vw, 4.5rem);
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+}
+h1 span { color: var(--accent); }
+.hero-text { max-width: 620px; color: var(--muted); font-size: 1.05rem; }
+.primary-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  color: white;
+  background: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  transition: .2s ease;
+}
+.primary-button:hover { background: var(--accent-dark); transform: translateY(-2px); }
+.hero-card {
+  min-height: 280px;
+  padding: 38px 25px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #f7f3ff, #fff 75%);
+  box-shadow: 0 18px 50px rgba(66, 47, 112, .09);
+  text-align: center;
+}
+.initials {
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: linear-gradient(135deg, #9278df, #5d42a8);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.7rem;
+}
+.hero-card-name { margin-bottom: 2px; font-weight: 700; }
+.muted, .section-intro { color: var(--muted); }
+.section {
+  padding: 82px 28px;
+  scroll-margin-top: 75px;
+}
+.section > * { max-width: 1064px; margin-left: auto; margin-right: auto; }
+.alternate { background: #faf9fd; }
+.section-heading { margin-bottom: 30px; }
+h2 {
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.2;
+}
+.section-intro { max-width: 720px; margin-bottom: 0; }
+.info-panel {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: white;
+}
+.info-panel > p { color: var(--muted); }
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+.detail {
+  padding: 15px 17px;
+  border-radius: 10px;
+  background: var(--pale);
+  overflow-wrap: anywhere;
+}
+.detail span, .project-summary span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: .8rem;
+}
+.detail strong { font-size: .94rem; }
+.detail a { color: var(--accent-dark); }
+.education-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.education-card, .skill-card {
+  padding: 25px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: white;
+}
+.level {
+  display: inline-block;
+  margin-bottom: 13px;
+  color: var(--accent);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+.education-card h3, .skill-card h3 { margin-bottom: 7px; font-size: 1.1rem; }
+.education-card p { margin-bottom: 5px; color: var(--muted); }
+.education-card small { color: var(--muted); }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+.skill-card p { margin-bottom: 0; color: var(--muted); font-size: .93rem; }
+.skill-icon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 17px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  color: var(--accent-dark);
+  background: var(--pale);
+  font-size: .82rem;
+  font-weight: 700;
+}
+.project-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.project-summary div {
+  padding: 17px;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid var(--line);
+}
+.project-summary strong { font-size: .9rem; }
+.code-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 18px;
+  border-radius: 12px 12px 0 0;
+  color: white;
+  background: #28243b;
+  font-size: .9rem;
+  font-weight: 600;
+}
+.code-heading a { color: #d9ccff; font-size: .82rem; }
+.code-block {
+  max-height: 650px;
+  overflow: auto;
+  margin: 0;
+  padding: 23px;
+  border-radius: 0 0 12px 12px;
+  color: #e9e5f5;
+  background: #191725;
+  font: .83rem/1.65 Consolas, 'Courier New', monospace;
+  tab-size: 4;
+}
+.note { margin-top: 13px; color: var(--muted); font-size: .85rem; }
+.contact-section { text-align: center; }
+.email-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--accent-dark);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+footer {
+  padding: 25px 20px;
+  color: #d8d3e5;
+  background: #252137;
+  text-align: center;
+  font-size: .82rem;
+}
+footer p { margin: 3px; }
+
+@media (max-width: 800px) {
+  .navbar { align-items: flex-start; flex-direction: column; }
+  .nav-links { gap: 10px 16px; }
+  .hero { grid-template-columns: 1fr; padding-top: 65px; gap: 30px; }
+  .hero-card { max-width: 430px; width: 100%; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .navbar { padding: 12px 18px; }
+  .nav-links { gap: 8px 13px; }
+  .nav-links a { font-size: .78rem; }
+  .hero, .section { padding-left: 18px; padding-right: 18px; }
+  .hero { padding-top: 55px; }
+  .detail-grid, .education-list, .skills-grid, .project-summary { grid-template-columns: 1fr; }
+  .info-panel { padding: 21px; }
+  .code-heading { align-items: flex-start; flex-direction: column; }
+}
+
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="brand" href="#home">Rhian<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#personal">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#java">Java Project</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">BS INFORMATION TECHNOLOGY STUDENT</p>
+        <h1>Hello, I'm <span>Rhian Ashley</span></h1>
+        <p class="hero-text">
+          Welcome to my personal portfolio. This website shares a little about me,
+          my educational background, the skills I am developing, and one of my Java projects.
+        </p>
+        <a class="primary-button" href="#personal">Explore My Portfolio</a>
+      </div>
+      <div class="hero-card" aria-label="Portfolio introduction">
+        <div class="initials">RG</div>
+        <p class="hero-card-name">Rhian Ashley De Leon Garcia</p>
+        <p class="muted">Future IT Professional</p>
+      </div>
+    </section>
+
+    <section class="section" id="personal">
+      <div class="section-heading">
+        <p class="eyebrow">GET TO KNOW ME</p>
+        <h2>Personal Information</h2>
+      </div>
+      <div class="info-panel">
+        <p>
+          I am Rhian Ashley De Leon Garcia, a Bachelor of Science in Information
+          Technology student. I am interested in learning how technology works
+          and how it can be used to solve everyday problems. As a student, I am
+          still improving my knowledge and skills through class activities and
+          programming projects. I believe that patience, practice, and willingness
+          to learn will help me grow in the field of Information Technology.
+        </p>
+        <div class="detail-grid">
+          <div class="detail"><span>Full Name</span><strong>Rhian Ashley De Leon Garcia</strong></div>
+          <div class="detail"><span>Program</span><strong>Bachelor of Science in Information Technology</strong></div>
+          <div class="detail"><span>Section</span><strong>BSIT-1D</strong></div>
+          <div class="detail"><span>Email Address</span><strong><a href="mailto:garciarhianashley@gmail.com">garciarhianashley@gmail.com</a></strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alternate" id="education">
+      <div class="section-heading">
+        <p class="eyebrow">MY LEARNING JOURNEY</p>
+        <h2>Educational Background</h2>
+        <p class="section-intro">The schools where I completed the different levels of my education.</p>
+      </div>
+      <div class="education-list">
+        <article class="education-card">
+          <span class="level">COLLEGE</span>
+          <h3>Our Lady of the Sacred Heart College of Guimba, Inc.</h3>
+          <p>Currently studying Bachelor of Science in Information Technology (BSIT).</p>
+          <small>BSIT-1D</small>
+        </article>
+        <article class="education-card">
+          <span class="level">SENIOR HIGH SCHOOL</span>
+          <h3>Triala National High School</h3>
+          <p>Humanities and Social Sciences (HUMSS) Strand</p>
+        </article>
+        <article class="education-card">
+          <span class="level">JUNIOR HIGH SCHOOL</span>
+          <h3>Triala National High School</h3>
+        </article>
+        <article class="education-card">
+          <span class="level">ELEMENTARY</span>
+          <h3>Caballero Elementary School</h3>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-heading">
+        <p class="eyebrow">WHAT I AM LEARNING</p>
+        <h2>Skills and Competencies</h2>
+        <p class="section-intro">These are skills I have learned and continue to develop as an IT student.</p>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card"><div class="skill-icon"><span aria-hidden="true">◆</span></div><h3>HTML</h3><p>Creating the structure and content of a web page.</p></article>
+        <article class="skill-card"><div class="skill-icon"><span aria-hidden="true">◆</span></div><h3>CSS</h3><p>Styling web pages to make them clear and organized.</p></article>
+        <article class="skill-card"><div class="skill-icon"><span aria-hidden="true">◆</span></div><h3>Java Programming</h3><p>Practicing basic programs using variables, loops, arrays, and conditions.</p></article>
+        <article class="skill-card"><div class="skill-icon"><span aria-hidden="true">◆</span></div><h3>Problem Solving</h3><p>Breaking a task into smaller steps and finding a possible solution.</p></article>
+        <article class="skill-card"><div class="skill-icon"><span aria-hidden="true">◆</span></div><h3>Communication</h3><p>Sharing ideas and listening to others during class activities.</p></article>
+        <article class="skill-card"><div class="skill-icon"><span aria-hidden="true">◆</span></div><h3>Teamwork</h3><p>Working with classmates and doing my part in group tasks.</p></article>
+      </div>
+    </section>
+
+    <section class="section alternate" id="java">
+      <div class="section-heading">
+        <p class="eyebrow">CC102 FINAL PERFORMANCE TASK</p>
+        <h2>Java Code: Rainwater Collection Analyzer</h2>
+        <p class="section-intro">
+          This console-based Java program accepts rainwater amounts for ten containers.
+          It validates the inputs, calculates the total and average, identifies the
+          largest collection, and sorts the amounts from highest to lowest.
+        </p>
+      </div>
+      <div class="project-summary">
+        <div><span>Programming Language</span><strong>Java</strong></div>
+        <div><span>Data Structure</span><strong>One-dimensional arrays</strong></div>
+        <div><span>Processing</span><strong>Input validation, calculations, manual sorting</strong></div>
+      </div>
+      <div class="code-heading">
+        <span>RainwaterCollectionAnalyzer.java</span>
+        <a href="RainwaterCollectionAnalyzer.java" download>Download Java File</a>
+      </div>
+      <pre class="code-block"><code>import java.util.Scanner;
+
+public class RainwaterCollectionAnalyzer {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        double[] rainwater = new double[10];
+        int[] containerIndex = new int[10];
+
+        double total = 0;
+        double average;
+        double largest = 0;
+        int largestIndex = 0;
+
+        System.out.println("RAINWATER COLLECTION ANALYZER");
+
+        // Input and validate rainwater amounts
+        for (int i = 0; i &lt; 10; i++) {
+
+            System.out.print("Enter amount for Container " + i + ": ");
+
+            while (true) {
+                if (input.hasNextDouble()) {
+                    double amount = input.nextDouble();
+
+                    if (Double.isFinite(amount) &amp;&amp; amount &gt;= 0) {
+                        rainwater[i] = amount;
+                        containerIndex[i] = i;
+                        break;
+                    } else {
+                        System.out.println("Invalid! Enter a nonnegative value.");
+                    }
+                } else {
+                    System.out.println("Invalid! Enter a number.");
+                    input.next();
+                }
+            }
+
+            total += rainwater[i];
+
+            if (i == 0 || rainwater[i] &gt; largest) {
+                largest = rainwater[i];
+                largestIndex = i;
+            }
+        }
+
+        // Calculate average
+        average = total / 10;
+
+        // Display total, average, and largest collection
+        System.out.println("\n--- COLLECTION SUMMARY ---");
+        System.out.printf("Total Collection: %.2f liters%n", total);
+        System.out.printf("Average Collection: %.2f liters%n", average);
+        System.out.printf("Largest Collection: %.2f liters%n", largest);
+        System.out.println("Container Index: " + largestIndex);
+
+        // Manual sorting in descending order
+        for (int i = 0; i &lt; 9; i++) {
+            for (int j = 0; j &lt; 9 - i; j++) {
+
+                if (rainwater[j] &lt; rainwater[j + 1]) {
+
+                    double temp = rainwater[j];
+                    rainwater[j] = rainwater[j + 1];
+                    rainwater[j + 1] = temp;
+
+                    int tempIndex = containerIndex[j];
+                    containerIndex[j] = containerIndex[j + 1];
+                    containerIndex[j + 1] = tempIndex;
+                }
+            }
+        }
+
+        // Display sorted amounts
+        System.out.println("\n--- DESCENDING ORDER ---");
+
+        for (int i = 0; i &lt; 10; i++) {
+            System.out.printf("Container Index %d: %.2f liters%n",
+                    containerIndex[i], rainwater[i]);
+        }
+
+        input.close();
+    }
+}</code></pre>
+      <p class="note">
+        Note: The code shown here is the Java program supplied for this portfolio.
+        Keep the separate <strong>.java</strong> file with the HTML and CSS files when uploading.
+      </p>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-heading">
+        <p class="eyebrow">LET'S CONNECT</p>
+        <h2>Contact Information</h2>
+        <p class="section-intro">For school-related communication, you may reach me through my email address.</p>
+      </div>
+      <a class="email-link" href="mailto:garciarhianashley@gmail.com">garciarhianashley@gmail.com</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Rhian Ashley De Leon Garcia · Personal Portfolio</p>
+    <p>Built with HTML and CSS</p>
+  </footer>
+</body>
+</html>
